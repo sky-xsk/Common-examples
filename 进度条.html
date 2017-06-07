@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="pace.min.js"></script>
+    <link rel="stylesheet" href="loadings.css" />
+
+    <title></title>
+</head>
+
+<body>
+    <!--<div class="loading"></div>
+    <div id="header">
+        页头部分
+    </div>
+    <script type="text/javascript">
+        $('.loading').animate({
+            'width': '33%'
+        }, 50); //第一个进度节点
+    </script>
+    <div id="mainpage">
+        左侧内容
+    </div>
+    <script type="text/javascript">
+        $('.loading').animate({
+            'width': '55%'
+        }, 50); //第二个进度节点
+    </script>
+    <div id="sider">
+        右边侧栏
+    </div>
+    <script type="text/javascript">
+        $('.loading').animate({
+            'width': '80%'
+        }, 50); //第三个进度节点
+    </script>
+    <div id="footer">
+        页脚部分
+    </div>
+    <script type="text/javascript">
+        $('.loading').animate({
+            'width': '100%'
+        }, 50); //第四个进度节点
+    </script>-->
+
+
+</body>
+<script>
+    $(document).ready(function() {
+        $('.loading').fadeOut();
+    });
+    if (typeof window.screenX !== "number") {
+        document.createElement("progress");
+        document.createElement("ie");
+    }
+</script>
+<style>
+    .loading {
+        background: #FF6100;
+        height: 5px;
+        position: fixed;
+        top: 0;
+        z-index: 99999
+    }
+</style>
+
+</html>

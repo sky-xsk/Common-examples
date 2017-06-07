@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="a"></div>
+
+</body>
+<style>
+    /*设置的dpi，1px的线，实现缩放的功能*/
+    
+    @media(-webkit-min-device-pixel-ratio:1.5),
+    (min-device-pixel-ratio:1.5) {
+        .a::after {
+            -webkit-transform: scaleY(0.7);
+            transform: scaleY(0.7);
+        }
+    }
+    
+    @media(-webkit-min-device-pixel-ratio:2),
+    (min-device-pixel-ratio:2) {
+        .a::after {
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+        }
+    }
+    
+    .a {
+        width: 1000px;
+        height: 200px;
+        position: relative;
+        border-top: 1px solid #000;
+        margin-top: 50px;
+    }
+    
+    .a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-bottom: 1px solid #000;
+        display: block;
+        width: 100%;
+    }
+</style>
+
+</html>
