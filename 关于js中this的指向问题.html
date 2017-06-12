@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>this</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+</body>
+<style>
+
+</style>
+<script>
+    //作为对象的方法调用
+    //当函数作为对象的方法被调用时，this 指向该对象：
+    var obj = {
+        a: 1,
+        getA: function() {
+            console.log(this === obj); //true
+            console.log(this.a) //1
+        }
+    };
+    obj.getA();
+
+    //作为普通函数调用
+    //当函数不作为对象的属性被调用时，也就是我们常说的普通函数方式，此时的this 总是指
+    //向全局对象。 在浏览器的JavaScript 里， 这个全局对象是window 对象。
+    window.name = 'golbalName';
+    var getName = function() {
+        console.log(this) //window
+        return this.name;
+    };
+    console.log(getName()); //golbalName
+
+    //构造器调用
+    //构造器的外表跟普通函数一模一样，它们的区别在于被调用的方式。当用new 运算符调用函数时，该函数总会返回一个对象，通常情况下，构造器里的this 就指向返回的这个对象
+    var myClass = function() {
+        this.name = 'aa';
+    };
+    var obj = new myClass();
+    console.log(this.name); //aa
+
+    //
+    var MyClass = function() {
+        this.name = 'sven';
+        return { // 显式地返回一个对象
+            name: 'anne'
+        }
+    };
+    var obj = new MyClass();
+    alert(obj.name); // 输出：anne
+
+    //Function.prototype.call 或Function.prototype.apply 调用
+    var obj1 = {
+        name: 'sven',
+        getName: function() {
+            return this.name;
+        }
+    };
+    var obj2 = {
+        name: 'anne'
+    };
+    console.log(obj1.getName()); // 输出: sven
+    console.log(obj1.getName.call(obj2)); // 输出：anne
+
+    //
+
+    var obj = {
+        myName: 'sven',
+        getName: function() {
+            return this.myName;
+        }
+    };
+    console.log(obj.getName()); // 输出：'sven'
+    var getName2 = obj.getName;
+    console.log(getName2()); // 输出：undefined,指向的是window
+</script>
+
+</html>
