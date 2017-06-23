@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>拖拽</title>
+</head>
+<style>
+    #div1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<body>
+    <div id="div1"></div>
+</body>
+<script>
+    window.onload = function() {
+        var oDiv = document.getElementById('div1');
+        var disX = 0;
+        var disY = 0;
+        oDiv.onmousedown = function(ev) {
+            var oEvent = ev || event;
+
+            disX = oEvent.clientX - oDiv.offsetLeft; //鼠标点击的地方距离div左边的距离
+            disY = oEvent.clientY - oDiv.offsetTop; //鼠标点击的地方距离div上边的距离
+
+            document.onmousemove = function(ev) {
+                var oEvent = ev || event;
+                var l = oEvent.clientX - disX; //div距离浏览器左边的距离
+                var t = oEvent.clientY - disY; //div距离浏览器上边的距离
+
+                if (l < 0) {
+                    l = 0;
+                } else if (l > document.documentElement.clientWidth - oDiv.offsetWidth) { //浏览器可视区的宽度
+                    l = document.documentElement.clientWidth - oDiv.offsetWidth; //oDiv.offsetWidth是div的宽度
+
+                }
+
+                if (t < 0) {
+                    t = 0;
+                } else if (t > document.documentElement.clientHeight - oDiv.offsetHeight) { //浏览器可视区的高度
+                    t = document.documentElement.clientHeight - oDiv.offsetHeight;
+                }
+                oDiv.style.left = l + 'px';
+                oDiv.style.top = t + 'px';
+            };
+
+            document.onmouseup = function() {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+
+            return false;
+        };
+    };
+</script>
+
+
+</html>
