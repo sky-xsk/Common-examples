@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //千分位 每隔3个数字添加一个逗号；
+    // function comdify(n) {　　
+    //     var re = /\d{1,3}(?=(\d{3})+$)/g;　　
+    //     var n1 = n.replace(/^(\d+)((\.\d+)?)$/, function(s, s1, s2) {
+    //         console.log(s1.replace(re, "$&,") + s2)
+    //     });　　
+    //     return n1;
+    // }
+    // comdify("7855656263");
+
+
+    function toThousands(num) {
+        var num = (num || 0).toString(),
+            result = '';
+        while (num.length > 3) {
+            result = ',' + num.slice(-3) + result;
+            num = num.slice(0, num.length - 3);
+        }
+        if (num) {
+            result = num + result;
+        }
+        console.log(result);
+    }
+    toThousands("424234345")
+
+
+    ////
+
+    function toThousands(num) {
+        return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+    }
+</script>
+<style>
+
+</style>
+
+</html>

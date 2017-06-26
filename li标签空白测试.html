@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div class="wrap">
+        <p>产生原因：浏览器的默认行为是把inline元素间的空白字符（空格换行tab）渲染成一个空格，换行后会产生换行字符，而它会变成一个空格，当然空格就占用一个字符的宽度
+        </p>
+        <p>真正意义上的inline-block水平呈现的元素间，换行显示或空格分隔的情况下会有间距</p>
+        <h3>li标签空白测试</h3>
+        <ul>
+            <li class="part1"></li>
+            <li class="part2"></li>
+            <li class="part3"></li>
+            <li class="part4"></li>
+        </ul>
+    </div>
+    <p>解决办法1：.wrap ul{letter-spacing: -4px;} .wrap ul li{letter-spacing: normal;}</p>
+    <p>解决办法2：li标签不要换行，写在一行</p>
+    <p>解决办法3：li添加浮动</p>
+    <p>解决办法4： 给父级font-size: 0; -webkit-text-size-adjust:none;</p>
+    <p>解决办法5：.wrap ul { word-spacing: -8px; } .wrap ul li{ word-spacing: 0; } </p>
+    <p>解决办法6： 将前三个li的结束标签删除，只留最后一个</p>
+    <p>解决办法7： html5中奖所有的li的结束标签删除</p>
+</body>
+<script>
+</script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        width: 100%;
+    }
+    /****第一种方法******/
+    
+    ul li {
+        list-style-type: none;
+    }
+    
+    h3 {
+        text-align: center;
+        color: blue;
+        margin-bottom: 10px;
+    }
+    
+    .wrap {
+        width: 600px;
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+    
+    .wrap li {
+        width: 25%;
+        height: 150px;
+        display: inline-block;
+        /**产生的主要原因**/
+    }
+    
+    .part1 {
+        background-color: red;
+    }
+    
+    .part2 {
+        background-color: blue;
+    }
+    
+    .part3 {
+        background-color: yellow;
+    }
+    
+    .part4 {
+        background-color: black;
+    }
+</style>
+
+</html>
