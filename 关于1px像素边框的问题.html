@@ -11,6 +11,15 @@
 
     <div class="a"></div>
 
+    <!---->
+
+    <div class="hairlines">
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+
 </body>
 <style>
     /*设置的dpi，1px的线，实现缩放的功能*/
@@ -47,6 +56,25 @@
         border-bottom: 1px solid #000;
         display: block;
         width: 100%;
+    }
+    /*********************第二种,不用border**************************/
+    
+    .hairlines li {
+        position: relative;
+        border: none;
+    }
+    
+    .hairlines li:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        background: #000;
+        width: 100%;
+        height: 1px;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
     }
 </style>
 
