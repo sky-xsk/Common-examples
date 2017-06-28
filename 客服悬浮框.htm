@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 300px;
+            background: #F60;
+            position: absolute;
+            left: -100px;
+        }
+        
+        #div1 span {
+            width: 24px;
+            height: 60px;
+            text-align: center;
+            left: 100px;
+            top: 100px;
+            background: #000;
+            position: absolute;
+            color: #fff;
+            text-align: center;
+            line-height: 26px;
+            border-radius: 5px;
+            cursor: pointer
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var oDiv = document.getElementById('div1');
+
+            oDiv.onmouseover = function() {
+                startMove(0);
+            }
+            oDiv.onmouseout = function() {
+                startMove(-100);
+            }
+        }
+        var timer = null;
+
+        function startMove(iTarget) {
+            var oDiv = document.getElementById('div1');
+
+            clearInterval(timer);
+            timer = setInterval(function() {
+                var iSpeed = 0;
+
+                if (oDiv.offsetLeft < iTarget) {
+                    iSpeed = 10;
+                } else {
+                    iSpeed = -10;
+                }
+
+                if (oDiv.offsetLeft == iTarget) {
+                    clearInterval(timer);
+                } else {
+                    oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+                }
+            }, 30);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1">
+        <p>此处添加你要写的内容</p>
+        <span>客服</span>
+    </div>
+</body>
+
+</html>
