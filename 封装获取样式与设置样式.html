@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div id="divs"></div>
+</body>
+<style>
+    #divs {
+        width: 200px;
+        height: 200px;
+        background: #000;
+    }
+</style>
+<script>
+    //设置样式
+    function setStyle(obj, json) {
+        var arr = '';
+        for (arr in json) {
+            obj.style[arr] = json[arr];
+        }
+    };
+
+    //获取样式    
+    function getStyle(obj, attr) {
+        if (obj.currentStyle) { //兼容性的写法
+            return obj.currentStyle[attr];
+        } else {
+            return getComputedStyle(obj, null)[attr];
+        }
+    };
+
+    window.onload = function() {
+        var oDiv = document.getElementById('divs');
+        //设置样式调用
+        setStyle(oDiv, {
+            background: "#F60",
+            width: "500px"
+        });
+        //获取样式调用
+        getStyle(oDiv, "width");
+    };
+</script>
+<style>
+
+</style>
+
+</html>
