@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function addEvent(obj, Sevent, fn) { //参数意义：对象，事件，函数
+        if (obj.attachEvent) {
+            obj.attachEvent('on' + Sevent, fn)
+        } else {
+            obj.addEventListener(Sevent, fn, false)
+        }
+    }
+    //调用方法
+    addEvent(obj, 'click', fn);
+</script>
+<style>
+
+</style>
+
+</html>
