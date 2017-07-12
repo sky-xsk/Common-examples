@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>div模拟textarea以实现高度自适应实例页面以及滚动条控制</title>
+</head>
+
+<body>
+    <!--
+        user-modify属性，用来控制用户能否对页面文本进行编辑
+        -webkit-user-modify: read-only | read-write | read-write-plaintext-only
+        read-only	内容只读。
+        read-write	内容可读写。
+        read-write-plaintext-only	内容可读写，但粘贴内容中的富文本格式（如文本的颜色、大小，图片等）会丢失。内容类似于以纯文本显示。
+    -->
+    <div class="taxtareas" contenteditable="true"></div>
+</body>
+<script>
+</script>
+<style>
+    .taxtareas {
+        width: 300px;
+        min-height: 100px;
+        max-height: 300px;
+        overflow-y: hidden;
+        border: 1px solid #ccc;
+        outline: none;
+        word-wrap: break-word;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-user-modify: read-write-plaintext-only;
+        resize: both;
+        /**拖拽***/
+    }
+    
+     ::-webkit-scrollbar {
+        width: 10px;
+    }
+    /* 这是针对缺省样式 (必须的) */
+    
+     ::-webkit-scrollbar-track {
+        background-color: #b46868;
+    }
+    /* 滚动条的滑轨背景颜色 */
+    
+     ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    /* 滑块颜色 */
+    
+     ::-webkit-scrollbar-button {
+        background-color: #7c2929;
+    }
+    /* 滑轨两头的监听按钮颜色 */
+    
+     ::-webkit-scrollbar-corner {
+        background-color: black;
+    }
+    /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+</style>
+
+</html>
