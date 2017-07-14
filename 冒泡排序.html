@@ -13,18 +13,41 @@
 
 </body>
 <script>
-    function sortarr(arr) {
-        for (i = 0; i < arr.length - 1; i++) {
-            for (j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    var temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
+    // function sortarr(arr) {
+    //     for (i = 0; i < arr.length - 1; i++) {
+    //         for (j = 0; j < arr.length - 1 - i; j++) {
+    //             if (arr[j] > arr[j + 1]) {
+    //                 var temp = arr[j];
+    //                 arr[j] = arr[j + 1];
+    //                 arr[j + 1] = temp;
+    //             }
+    //         }
+    //     }
+    //     return arr;
+    // }
+
+    //二分法查找
+
+    var arr = [1, 4, 6, 8, 9, 10, 56];
+
+    function binarySearch(arr, findval, leftIndex, rightIndex) {
+        var midIndex = Math.floor((leftIndex + rightIndex) / 2);
+        var midval = arr[midIndex];
+
+        if (midval > findval) {
+            //左边找  
+            binarySearch(arr, findval, leftIndex, midIndex);
+            alert("left");
+        } else if (midval < findval) {
+            //右边找  
+            binarySearch(arr, findval, midIndex, rightIndex);
+            alert("right");
+        } else {
+            document.write("找到下标为" + midIndex);
         }
-        return arr;
     }
+    //测试:  
+    binarySearch(arr, 10, 0, arr.length - 1);
 </script>
 
 

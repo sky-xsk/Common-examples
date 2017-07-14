@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>计算数组中每个元素出现的次数</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+</body>
+<script>
+    //第一种方法（我常用的）
+    function arrShu(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            var count = 1; //默认是出现一次的；
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                    arr.splice(i, 1);
+                    j--;
+                }
+            }
+            console.log(arr[i] + ":" + count)
+        }
+    }
+    arrShu([1, 2, 3, 3, 4, 4, 4, 4, 4, 5, 'wqeqwe', 's', 's']);
+
+    //第二种方法；
+    function arrCheck(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            var temp = arr[i];
+            var count = 0;
+            for (var j = 0; j < arr.length; j++) {
+                if (arr[j] == temp) {
+                    count++;
+                    arr[j] = -1;
+                }
+            }
+            if (temp != -1) {
+                newArr.push(temp + ":" + count);
+            }
+
+        }
+        return newArr;
+    }
+
+    console.log(arrCheck([1, 2, 3, 3, 4]));
+</script>
+
+</html>
