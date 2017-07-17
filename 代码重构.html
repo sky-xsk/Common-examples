@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //代码重构
+    //1
+    //提炼函数
+    var getUserInfo = function() {
+        ajax('http://xxxx.xxxx.com', function(data) {
+            console(data.id);
+            console(data.user);
+        })
+    };
+
+    //2 代替1
+    var getUserInfo = function() {
+        ajax('http://xxxx.xxxx.com', function(data) {
+            printDetails(data);
+        })
+    };
+
+    function printDetails(data) {
+        console(data.id);
+        console(data.user);
+    };
+
+
+    //合并重复的条件判断
+    //1
+    var paging = function(currPage) {
+        if (currPage <= 0) {
+            currPage = 0;
+            jump(currPage);
+        } else if (currPage >= totalPage) {
+            currPage = totalPage;
+            jump(currPage);
+        } else {
+            jump(currPage);
+        }
+    }
+
+    //2用过
+    var paging = function(currPage) {
+        if (currPage <= 0) {
+            currPage = 0;
+        } else if (currPage >= totalPage) {
+            currPage = totalPage;
+        }
+        jump(currPage);
+    }
+
+    //把条件分支语句提炼成函数
+    //1
+    var getPrice = function(price) {
+        var date = new Date();
+        if (date.getMonth() >= 6 && date.getMonth <= 9) {
+            return price * 0.8;
+        }
+        return price;
+    };
+
+    //2
+    var isSummer = function(price) {
+        var date = new Date();
+        return date.getMonth() >= 6 && date.getMonth <= 9
+    };
+
+    var getPrice = function(price) {
+        if (isSummer()) {
+            return price * 0.8;
+        }
+        return price;
+    };
+
+    //合理使用循环条件
+    //1
+    var createXHR = function() {
+        var xhr;
+        try {
+            xhr = new ActiveXObject('MSXML2.XMLHTTP.6.0');
+        } catch (e) {
+            try {
+                xhr = new ActiveXObject('MSXML2.XMLHTTP.3.0');
+            } catch (e) {
+                xhr = new ActiveXObject('MSXML2.XMLHTTP');
+            }
+        }
+        return xhr;
+    }
+
+    //2
+    var createXHR = function() {
+        var versions = ['MSXML2.XMLHttp.6.0ddd', 'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp'];
+        for (var i = 0, version; version = versions[i++];) {
+            try {
+                return new ActiveXObject(version);
+            } catch (e) {}
+        }
+    };
+    var xhr = createXHR();
+
+    //提前让函数退出代替嵌套条件分支
+
+    //1
+    var del = function(obj) {
+        var ret;
+        if (!obj.isReadOnly) {
+            if (obj.isFolder) {
+                ret = deleteFolder(obj);
+            } else if (obj.isFile) {
+                ret = deleteFolder(obj);
+            }
+        }
+        return ret;
+    }
+
+    //2 重构（多个出口）
+    var del = function(obj) {
+        if (obj.isReadOnly) {
+            return;
+        } //跳出
+        if (obj.isFolder) {
+            return deleteFolder(obj);
+        }
+        if (obj.isFile) {
+            return deleteFolder(obj);
+        }
+    };
+
+    //传递对象参数代替过长的参数列表
+    //1
+    var setUserInfo = function(id, name, address, sex) {
+        console.log(id);
+        console.log(name);
+        console.log(address);
+        console.log(sex);
+    };
+    setUserInfo(13, 'xsk', 'add', 'male');
+
+    //2
+    var setUserInfo = function(obj) {
+        console.log(obj.id);
+        console.log(obj.name);
+        console.log(obj.address);
+        console.log(obj.sex);
+    };
+
+    setUserInfo({
+        id: 12,
+        name: 'xsk',
+        address: 'add',
+        sex: 'male'
+    })
+
+    //减少参数的数量
+    //1
+    var draw = function(width, height, square) {};
+    //2 在一定情况下，参数可以通过其他参数计算出来
+    var draw = function(width, height) {
+        var square = width * height;
+    }
+
+    //少用三目运算符
+
+    //合理的使用链式调用(j)
+    //1
+    var User = function() {
+        this.id = null;
+        this.name = null;
+    };
+    User.prototype.setId = function(id) {
+        this.id = id;
+        return this;
+    };
+    User.prototype.setName = function(name) {
+        this.name = name;
+        return this;
+    }
+
+    console.log(new User().setId(45565).setName('xsk'));
+</script>
+
+</html>
