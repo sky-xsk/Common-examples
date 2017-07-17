@@ -186,6 +186,106 @@
     }
 
     console.log(new User().setId(45565).setName('xsk'));
+
+
+    //分解大型类(模糊)
+    //1
+    var Spirit = function(name) {
+        this.name = name;
+    };
+
+    Spirit.prototype.attack = function(type) {
+        if (type === 'waveBoxing') {
+            console.log(this.name + '拳');
+        } else if (type === 'whirLkick') {
+            console.log(this.name + '脚')
+        }
+    };
+    var spirit = new Spirit('RYU');
+    spirit.attack('waveBoxing');
+    spirit.attack('whirLkick');
+
+    //2
+    var Attack = function(spirit) {
+        this.spirit = spirit;
+    };
+    Attack.prototype.start = function(type) {
+        return this.list[type].call(this);
+    };
+    Attack.prototype.list = {
+        waveBoxing: function() {
+            console.log(this.spirit.name + '拳');
+        },
+        whirLkick: function() {
+            console.log(this.spirit.name + '腿');
+        }
+    };
+    //3
+    var Spirit = function(name) {
+        this.name = name;
+        this.attackObj = new Attack(this);
+    };
+    Spirit.prototype.attack = function(type) {
+        this.attackObj.start(type);
+    };
+    var spirit = new Spirit('RYU');
+    spirit.attack('waveBoxing');
+    spirit.attack('whirLkick');
+
+    //用return退出多重循环
+    //1
+    var func = function() {
+        var flag = false;
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                if (i * j > 30) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag === true) {
+                break;
+            }
+        }
+    };
+
+    //2
+    var func = function() {
+        outerloop: for (var i = 0; i < 10; i++) {
+            innerloop: for (var j = 0; j < 10; j++) {
+                if (i * j > 30) {
+                    break outerloop;
+                }
+            }
+        }
+    };
+
+    //3
+    var func = function() {
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                if (i * j > 30) {
+                    return;
+                }
+            }
+        }
+        console.log(i); // 这句代码没有机会被执行
+    };
+
+    //4 重构方案
+    var print = function(i) {
+        console.log(i);
+    };
+    var func = function() {
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                if (i * j > 30) {
+                    return print(i);
+                }
+            }
+        }
+    };
+    func();
 </script>
 
 </html>
