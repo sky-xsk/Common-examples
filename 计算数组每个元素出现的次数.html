@@ -48,6 +48,37 @@
         return newArr;
     }
     console.log(arrCheck([1, 2, 3, 3, 4]));
+
+
+    //字符串计算,计算出现最多的次数以及该字符
+    var strs = "asdasdaddasdgfcghdgdfgdfsh";
+
+    function getmaxstr(str) {
+        if (str.length == 1) {
+            return str;
+        }
+        var newarr = [];
+        for (var i = 0; ss = str.length, i < ss; i++) {
+            if (!newarr[str.charAt(i)]) {
+                newarr[str.charAt(i)] = 1;
+            } else {
+                newarr[str.charAt(i)] += 1;
+            }
+        }
+        console.log(newarr);
+
+        var maxkey = '';
+        var maxvalue = 1; //设定一个值
+        for (var k in newarr) {
+            if (newarr[k] > maxvalue) { //根据这个值做判读 将数组中的每个元素 与这个值做比较！ 如果大于他，那么将住宿
+                maxvalue = newarr[k]; //出现的次数
+                maxkey = k; //次数最多的 字母
+            }
+        }
+        console.log(maxkey);
+        return maxvalue;
+    }
+    getmaxstr(strs);
 </script>
 
 </html>
