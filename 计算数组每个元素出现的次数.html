@@ -79,6 +79,29 @@
         return maxvalue;
     }
     getmaxstr(strs);
+
+    //计算字符串出现做多的那个
+    var s = 'sdqwew';
+    var obj = [];
+    var maxn = -1;
+    var letter;
+    for (var i = 0; i < s.length; i++) { //先判断是否存在obj[s[i]
+        console.log(obj[s[i]]);
+        if (obj[s[i]]) { //如果字符串存在相同的，obj[s[i]就会加1，不存在的话是undefined
+            obj[s[i]] += 1; // 
+            if (obj[s[i]] > maxn) { //如果值大于maxn，
+                maxn = obj[s[i]]; // maxn的值就为当前obj[s[i]]
+                letter = s[i]; //letter就为当前字符串某个值
+            }
+        } else {
+            obj[s[i]] = 1; //如果字符串没相同的元素，就默认为1，出现次数最多的元素就为，字符串的第一个字母
+            if (obj[s[i]] > maxn) {
+                maxn = obj[s[i]]; //
+                letter = s[i];
+            }
+        }
+    }
+    console.log(letter);
 </script>
 
 </html>
