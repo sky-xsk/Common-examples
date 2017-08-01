@@ -25,6 +25,7 @@
     //     var a = 200;
     //     alert(a);
     // }
+
     // fn(); //undefined , 200 变量提升 
     // alert(a); //100
     // var a;
@@ -34,26 +35,26 @@
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     //继承部分 面向对象
-    // var obj1 = {
-    //     name: 'obj1',
-    //     fn: function() {
-    //         console.log(this.name);
-    //     }
-    // };
-    // var obj2 = {
-    //     name: 'obj2'
-    // };
-    // var obj3 = {
-    //     name: 'obj3'
-    // };
-    // //obj1.fn(); //obj1
+    var obj1 = {
+        name: 'obj1',
+        fn: function() {
+            console.log(this.name);
+        }
+    };
+    var obj2 = {
+        name: 'obj2'
+    };
+    var obj3 = {
+        name: 'obj3'
+    };
+    //obj1.fn(); //obj1
 
-    // var newFn = obj1.fn;
-    // newFn(); //空值
+    var newFn = obj1.fn;
+    newFn(); //空值
 
-    // newFn.call(obj2); //obj2
-    // obj3.fn = newFn;
-    // obj3.fn(); // obj3
+    newFn.call(obj2); //obj2
+    obj3.fn = newFn;
+    obj3.fn(); // obj3
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
