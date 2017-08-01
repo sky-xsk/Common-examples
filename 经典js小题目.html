@@ -35,26 +35,26 @@
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     //继承部分 面向对象
-    var obj1 = {
-        name: 'obj1',
-        fn: function() {
-            console.log(this.name);
-        }
-    };
-    var obj2 = {
-        name: 'obj2'
-    };
-    var obj3 = {
-        name: 'obj3'
-    };
-    //obj1.fn(); //obj1
+    // var obj1 = {
+    //     name: 'obj1',
+    //     fn: function() {
+    //         console.log(this.name);
+    //     }
+    // };
+    // var obj2 = {
+    //     name: 'obj2'
+    // };
+    // var obj3 = {
+    //     name: 'obj3'
+    // };
+    // //obj1.fn(); //obj1
 
-    var newFn = obj1.fn;
-    newFn(); //空值
+    // var newFn = obj1.fn;
+    // newFn(); //空值
 
-    newFn.call(obj2); //obj2
-    obj3.fn = newFn;
-    obj3.fn(); // obj3
+    // newFn.call(obj2); //obj2
+    // obj3.fn = newFn;
+    // obj3.fn(); // obj3
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,7 +80,7 @@
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //正则部分；
-    // 有字符串var = 'abc345efgabcab'，
+    // 有字符串var str= 'abc345efgabcab'，
     // 请写出 3 条 JS 语句分别实现如下 3 个功能：
     // 1） 去掉字符串中的a、 b、 c 字符， 形成结果： '345efg'
     // 2） 将字符串中的数字用中括号括起来， 形成结果： 'abc3[5]efgabcab'
