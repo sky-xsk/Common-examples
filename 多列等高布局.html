@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>多列等高布局</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>多列等高布局实现方式</h1>
+    <div id="container">
+        <div class="left">haorooms多列等高布局左</div> 
+        <div class="right" id="rights">多列等高布局,使用正负 margin 与 padding 相冲的方式实现。</div>
+    </div>
+
+    <div id="container1">
+        <div class="left1">haorooms多列等高布局左</div> 
+        <div class="right1">多列等高布局,使用正负 margin 与 padding 相冲的方式实现多列等高布局,使用正负 margin 与 padding 相冲的方式实现多列等高布局,使用正负 margin 与 padding 相冲的方式实现。</div>
+    </div>
+
+    <div id="container2">
+        <div class="left2">haorooms多列等高布局左</div> 
+        <div class="right2">多列等高布局,使用正负 margin 与 padding 相冲的方式实现多列等高布局,使用正负 margin 与 padding 相冲的方式实现多列等高布局,使用正负 margin 与 padding 相冲的方式实现。</div>
+    </div>
+
+
+    <div id="container3">
+        <div class="left3">haorooms多列等高布局左</div> 
+        <div class="right3">多列等高布局,使用正负 margin 与 padding 相冲的方式实现多列等高布局,使用正负 margin 与 padding 相冲的方式实现多列等高布局,使用正负 margin 与 padding 相冲的方式实现。</div>
+    </div>
+
+    <div id="container4">
+        <div class="left4">haorooms多列等高布局左</div> 
+        <div class="right4">多列等高布局,使用正负 margin 与 padding 相冲的方式实现多列等高布局,使用正负 margin 与 padding 相冲的方式实现多列等高布局,使用正负 margin 与 padding 相冲的方式实现。</div>
+    </div>
+
+   <h1>多列均匀布局</h1> 
+   <div class="container5">
+        <div class="justify">
+            <i>1</i>
+            <i>2</i>
+            <i>3</i>
+            <i>4</i>
+            <i>5</i>
+        </div>
+    </div> 
+
+
+</body>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+ #container{
+    width:400px;
+    margin:0 auto;
+    background:#eee;
+    overflow:hidden;
+}
+.left,
+.right{
+    width:200px;
+    float:left;
+    font-size: 16px;
+    line-height:24px;
+    color:#333;
+    padding-bottom:5000px;
+    margin-bottom:-5000px;
+}
+.left{
+    background-color: deeppink;
+}
+.right{
+    background-color:yellowgreen;
+}
+
+
+#container1{
+    width:400px;
+    margin:0 auto;
+    margin-top: 30px;
+    background:#eee;
+    overflow:hidden;
+    display: flex;
+} 
+
+
+.left1,
+.right1{
+    width:200px;
+    float:left;
+    font-size: 16px;
+    line-height:24px;
+    color:#333;
+    flex: 1;
+}
+.left1{
+    background-color: deeppink;
+}
+.right1{
+    background-color:yellowgreen;
+}
+
+
+
+#container2{
+    width:400px;
+    margin:0 auto;
+    margin-top: 30px;
+    background-color: deeppink;
+    overflow:hidden;
+}
+.left2,
+.right2{
+    width:200px;
+    float:left;
+    font-size: 16px;
+    line-height:24px;
+    color:#333;
+}
+.right2{
+    background-color:yellowgreen;
+}
+
+
+
+#container3{
+    width:400px;
+    margin:0 auto;
+    margin-top: 30px;
+    background-image:
+        linear-gradient(90deg, yellowgreen 50%, deeppink 0);
+    overflow:hidden;
+}
+
+.left3,
+.right3{
+    width:200px;
+    float:left;
+    font-size: 16px;
+    line-height:24px;
+    color:#333;
+}
+
+
+
+#container4{
+    border-left:200px solid yellowgreen;
+    background-color:deeppink;
+    width:200px;
+    font-size: 16px;
+    line-height:24px;
+    color:#333;
+}
+
+.left4{
+    width:200px;
+    margin-left:-200px;
+    float:left;
+}
+
+/* .justify{
+  text-align: justify;
+  text-align-last: justify; 
+}
+
+.justify i{
+  width:24px;
+  line-height:24px;
+  display:inline-block;
+  text-align:center;
+} */
+
+
+
+.justify{
+  text-align: justify;
+}
+
+.justify i{
+  width:24px;
+  line-height:24px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+}
+
+.justify:after {
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+
+</style>
+
+</html>
