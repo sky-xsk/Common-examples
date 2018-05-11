@@ -189,183 +189,192 @@
     //////////////////////////////////////////////////////////////////////////////////
     // 请编写一个JavaScript函数 parseQueryString，它的用途是把URL参数解析为一个对象，如：
     //var url = “http://witmax.cn/index.php?key0=0&key1=1&key2=2″;
-//     function parseQueryString(url){
-//            var params = {};
-//            var arr = url.split("?");
-//            if (arr.length <= 1)
-//                            return params;
-//            arr = arr[1].split("&");
-//            for(var i=0, l=arr.length; i<l; i++){
-//                            var a = arr[i].split("=");
-//                            params[a[0]] = a[1];
-//            }
-//            return params;
-// }
- 
-// var url = "http://witmax.cn/index.php?key0=0&key1=1&key2=2";
-// var ps = parseQueryString(url);
-// alert(ps["key1"]);
+    //     function parseQueryString(url){
+    //            var params = {};
+    //            var arr = url.split("?");
+    //            if (arr.length <= 1)
+    //                            return params;
+    //            arr = arr[1].split("&");
+    //            for(var i=0, l=arr.length; i<l; i++){
+    //                            var a = arr[i].split("=");
+    //                            params[a[0]] = a[1];
+    //            }
+    //            return params;
+    // }
 
-//////////////////////////////////////////////////////////////////////////////////
-//写一个少于 80 字符的函数，判断一个字符串是不是回文字符串
-// function isPalindrome(str) {
-//  str = str.replace(/\W/g, '').toLowerCase();
-//  return (str == str.split('').reverse().join(''));
-// }
+    // var url = "http://witmax.cn/index.php?key0=0&key1=1&key2=2";
+    // var ps = parseQueryString(url);
+    // alert(ps["key1"]);
 
-//////////////////////////////////////////////////////////////////////////////////
-//写一个按照下面方式调用都能正常工作的 sum 方法
-// console.log(sum(2,3)); // Outputs 5
-// console.log(sum(2)(3)); // Outputs 5
+    //////////////////////////////////////////////////////////////////////////////////
+    //写一个少于 80 字符的函数，判断一个字符串是不是回文字符串
+    // function isPalindrome(str) {
+    //  str = str.replace(/\W/g, '').toLowerCase();
+    //  return (str == str.split('').reverse().join(''));
+    // }
 
-// function sum() {
-//     var fir = arguments[0];
-//     if(arguments.length === 2) {
-//         return arguments[0] + arguments[1]
-//     } else {
-//         return function(sec) {
-//             return fir + sec;
-//         }
-//     }
-// }
+    //////////////////////////////////////////////////////////////////////////////////
+    //写一个按照下面方式调用都能正常工作的 sum 方法
+    // console.log(sum(2,3)); // Outputs 5
+    // console.log(sum(2)(3)); // Outputs 5
 
-//////////////////////////////////////////////////////////////////////////////////
-//全部输出5
-// for (var i = 0; i < 5; i++) {
-//     setTimeout(function() { console.log(i)}, i * 1000 );
-// }
-//////////////////////////////////////////////////////////////////////////////////
-//10的阶乘
-// (function f(n)
-//     {
-//         return ((n > 1) ? n * f(n-1) : n)
-//     }
-// )(10);
+    // function sum() {
+    //     var fir = arguments[0];
+    //     if(arguments.length === 2) {
+    //         return arguments[0] + arguments[1]
+    //     } else {
+    //         return function(sec) {
+    //             return fir + sec;
+    //         }
+    //     }
+    // }
 
-//////////////////////////////////////////////////////////////////////////////////
-//比较有意思的题目
-// (function(x) {
-//     return (function(y) {
-//         console.log(x);
-//     })(2)
-// })(1)
+    //////////////////////////////////////////////////////////////////////////////////
+    //全部输出5
+    // for (var i = 0; i < 5; i++) {
+    //     setTimeout(function() { console.log(i)}, i * 1000 );
+    // }
+    //////////////////////////////////////////////////////////////////////////////////
+    //10的阶乘
+    // (function f(n)
+    //     {
+    //         return ((n > 1) ? n * f(n-1) : n)
+    //     }
+    // )(10);
 
-//输出1，闭包能够访问外部作用域的变量或参数。
+    //////////////////////////////////////////////////////////////////////////////////
+    //比较有意思的题目
+    // (function(x) {
+    //     return (function(y) {
+    //         console.log(x);
+    //     })(2)
+    // })(1)
 
-//////////////////////////////////////////////////////////////////////////////////
-//get-element-by-id转为getElementById
-// var foo="get-element-by-id";
-// function combo(msg){
-//   var arr = msg.split("-"); //数组
-//   var len = arr.length;  //将arr.length存储在一个局部变量可以提高for循环效率
-//   for(var i=1;i<len;i++){
-//     arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length);
-//     //console.log(arr[i]);
-//   }
-//   msg=arr.join("");
-//   console.log(msg);
-// }
-// combo(foo);
+    //输出1，闭包能够访问外部作用域的变量或参数。
 
-//////////////////////////////////////////////////////////////////////////////////
-//为了保证页面输出安全，我们经常需要对一些特殊的字符进行转义，请写一个函数escapeHtml，将<, >, &, "进行转义
+    //////////////////////////////////////////////////////////////////////////////////
+    //get-element-by-id转为getElementById
+    // var foo="get-element-by-id";
+    // function combo(msg){
+    //   var arr = msg.split("-"); //数组
+    //   var len = arr.length;  //将arr.length存储在一个局部变量可以提高for循环效率
+    //   for(var i=1;i<len;i++){
+    //     arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length);
+    //     //console.log(arr[i]);
+    //   }
+    //   msg=arr.join("");
+    //   console.log(msg);
+    // }
+    // combo(foo);
 
-// function escapeHtml(str) {
-//     return str.replace(/[<>"&]/g, function(match) {
-//         switch (match) {
-//             case "<":
-//                 return "<";
-//             case ">":
-//                 return ">";
-//             case "&":
-//                 return "&";
-//             case '"':
-//                 return '"'
-//         }
-//     });
-// }
+    //////////////////////////////////////////////////////////////////////////////////
+    //为了保证页面输出安全，我们经常需要对一些特殊的字符进行转义，请写一个函数escapeHtml，将<, >, &, "进行转义
 
-//////////////////////////////////////////////////////////////////////////////////
-// var foo = foo||bar;
-// //==>
-// if(foo){
-//     foo=foo
-// }else{
-//     foo=bar
-// }
+    // function escapeHtml(str) {
+    //     return str.replace(/[<>"&]/g, function(match) {
+    //         switch (match) {
+    //             case "<":
+    //                 return "<";
+    //             case ">":
+    //                 return ">";
+    //             case "&":
+    //                 return "&";
+    //             case '"':
+    //                 return '"'
+    //         }
+    //     });
+    // }
 
-// //==>
+    //////////////////////////////////////////////////////////////////////////////////
+    // var foo = foo||bar;
+    // //==>
+    // if(foo){
+    //     foo=foo
+    // }else{
+    //     foo=bar
+    // }
 
-// if(!foo){
-//     foo=bar
-// }
+    // //==>
 
-//短路表达式：作为"&&"和"||"操作符的操作数表达式，这些表达式在进行求值时，只要最终的结果已经可以确定是真或假，求值过程便告终止，这称之为短路求值。
+    // if(!foo){
+    //     foo=bar
+    // }
 
-//////////////////////////////////////////////////////////////////////////////////
-//用js实现随机选取10--100之间的10个数字，存入一个数组，并排序。
-// var arr = [];
-// function getrandom(istar,iend){
-//     var ichoice = istar - iend+1;
-//     return Math.floor(Math.random) * ichoice + istar
-// }
-// for(var i=0; i<10; i++){
-//     arr.push(getrandom(10,100));
-// }
-// arr.sort();
+    //短路表达式：作为"&&"和"||"操作符的操作数表达式，这些表达式在进行求值时，只要最终的结果已经可以确定是真或假，求值过程便告终止，这称之为短路求值。
+
+    //////////////////////////////////////////////////////////////////////////////////
+    //用js实现随机选取10--100之间的10个数字，存入一个数组，并排序。
+    // var arr = [];
+    // function getrandom(istar,iend){
+    //     var ichoice = istar - iend+1;
+    //     return Math.floor(Math.random) * ichoice + istar
+    // }
+    // for(var i=0; i<10; i++){
+    //     arr.push(getrandom(10,100));
+    // }
+    // arr.sort();
 
 
-// var url1 = 'http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e'
-// function serilizeUrl(url) {
-//   var result = {};
-//   url = url.split("?")[1];
-  
-//   var map = url.split("&");
+    // var url1 = 'http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e'
+    // function serilizeUrl(url) {
+    //   var result = {};
+    //   url = url.split("?")[1];
 
-//   for(var i = 0, len = map.length; i < len; i++) {
-//       console.log(map[i])
-//     result[map[i].split("=")[0]] = map[i].split("=")[1];
-//   }
-//   console.log(result);
-// }
-// serilizeUrl(url1)
+    //   var map = url.split("&");
 
-//实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制
-// 方法一：
-Object.prototype.clone = function(){
-    var o = this.constructor === Array ? [] : {};
-    for(var e in this){
-        o[e] = typeof this[e] === "object" ? this[e].clone() : this[e];
+    //   for(var i = 0, len = map.length; i < len; i++) {
+    //       console.log(map[i])
+    //     result[map[i].split("=")[0]] = map[i].split("=")[1];
+    //   }
+    //   console.log(result);
+    // }
+    // serilizeUrl(url1)
+
+    //实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制
+    // 方法一：
+    Object.prototype.clone = function() {
+        var o = this.constructor === Array ? [] : {};
+        for (var e in this) {
+            o[e] = typeof this[e] === "object" ? this[e].clone() : this[e];
+        }
+        return o;
     }
-    return o;
-}
- 
-//方法二：
- /**
-   * 克隆一个对象
-   * @param Obj
-   * @returns
-   */
-  function clone(Obj) {  
-    var buf;  
-    if (Obj instanceof Array) {  
-      buf = [];          //创建一个空的数组 
-      var i = Obj.length;  
-      while (i--) {  
-        buf[i] = clone(Obj[i]);  
-      }  
-      return buf;  
-    }else if (Obj instanceof Object){  
-      buf = {};          //创建一个空对象 
-      for (var k in Obj) {      //为这个对象添加新的属性 
-        buf[k] = clone(Obj[k]);  
-      }  
-      return buf;  
-    }else{             //普通变量直接赋值
-      return Obj;  
-    }  
-  }
 
+    //方法二：
+    /**
+     * 克隆一个对象
+     * @param Obj
+     * @returns
+     */
+    function clone(Obj) {
+        var buf;
+        if (Obj instanceof Array) {
+            buf = []; //创建一个空的数组 
+            var i = Obj.length;
+            while (i--) {
+                buf[i] = clone(Obj[i]);
+            }
+            return buf;
+        } else if (Obj instanceof Object) {
+            buf = {}; //创建一个空对象 
+            for (var k in Obj) { //为这个对象添加新的属性 
+                buf[k] = clone(Obj[k]);
+            }
+            return buf;
+        } else { //普通变量直接赋值
+            return Obj;
+        }
+    }
+
+
+    //CommonJS 中的 require/exports 和 ES6 中的 import/export 区别？
+
+    // CommonJS 模块的重要特性是加载时执行，即脚本代码在 require 的时候，就会全部执行。一旦出现某个模块被”循环加载”，就只输出已经执行的部分，还未执行的部分不会输出。
+    // ES6 模块是动态引用，如果使用 import 从一个模块加载变量，那些变量不会被缓存，而是成为一个指向被加载模块的引用，需要开发者自己保证，真正取值的时候能够取到值。
+    // import/export 最终都是编译为 require/exports 来执行的。
+    // CommonJS 规范规定，每个模块内部， module 变量代表当前模块。这个变量是一个对象，它的 exports 属性（即module.exports ）是对外的接口。
+    //加载某个模块，其实是加载该模块的 module.exports 属性。
+    // export 命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。
 </script>
 <style>
 
