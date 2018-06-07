@@ -36,7 +36,8 @@
     console.log(getName()); //golbalName
 
     //构造器调用
-    //构造器的外表跟普通函数一模一样，它们的区别在于被调用的方式。当用new 运算符调用函数时，该函数总会返回一个对象，通常情况下，构造器里的this 就指向返回的这个对象
+    //构造器的外表跟普通函数一模一样，它们的区别在于被调用的方式。当用new 运算符调用函数时，该函数总会返回一个对象，通常情况下，
+    //构造器里的this 就指向返回的这个对象
     var myClass = function() {
         this.name = 'aa';
     };
@@ -75,7 +76,7 @@
         }
     };
     console.log(obj.getName()); // 输出：'sven'
-    var getName2 = obj.getName;
+    var getName2 = obj.getName; //getName2相当于函数执行
     console.log(getName2()); // 输出：undefined,指向的是window
 </script>
 

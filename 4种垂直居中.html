@@ -1,8 +1,10 @@
 <!DOCTYPE HTML>
 <html>
+
 <head></head>
-<body> 
- <!--
+
+<body>
+    <!--
      1.margin: auto;实现绝对定位元素的水平垂直居中 IE7及以下低版本浏览器不兼容
     <div class='maps1'></div>
     2.margin的负间距实现绝对定位元素的水平垂直居中
@@ -19,86 +21,89 @@
 </body>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    list-style: none;
-}
-
-.maps1{
-    width: 200px;
-    height: 200px;
-    background-color: #000;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-}
-.maps2{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 200px;
-    height: 200px;
-    background-color: green;
-    border: 10px solid #000;
-    margin: -110px 0 0 -110px;
-}
-.maps3{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 200px;
-    height: 200px;
-    background-color: gray;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-/*****
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        list-style: none;
+    }
+    
+    .maps1 {
+        width: 200px;
+        height: 200px;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+    
+    .maps2 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        border: 10px solid #000;
+        margin: -110px 0 0 -110px;
+    }
+    
+    .maps3 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: gray;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    /*****
 .maps4相关
 ***/
-body,
-html {
-    height: 100%;
-}
-.maps4{
-    /** height:100%就是让页面撑满整个可视区 */
-    height: 100%;
-    /** 流行版弹性盒模型布局 */
-    display: flex;
-    display: -webkit-flex;
-    /** 老安卓版弹性盒模型布局 */
-   /** display: box;
+    
+    body,
+    html {
+        height: 100%;
+    }
+    
+    .maps4 {
+        /** height:100%就是让页面撑满整个可视区 */
+        height: 100%;
+        /** 流行版弹性盒模型布局 */
+        display: flex;
+        display: -webkit-flex;
+        /** 老安卓版弹性盒模型布局 */
+        /** display: box;
     display: -webkit-box;
     /** 老安卓版的横向居中 */
-    /**box-pack: center;
+        /**box-pack: center;
     -webkit-box-pack: center;
     /** 老安卓版的垂直居中 */
-    /**box-align: center;
+        /**box-align: center;
     -webkit-box-align: center;
     /** 流行版的横向居中 */
-    justify-content: center;
-    -webkit-justify-content: center;
-    /** 流行版的垂直居中 */
-    align-items: center;
-    -webkit-align-items: center;
-}
-.maps4 div {
-    width: 100px;
-    height: 100px;
-    background-color: black;
-}
+        justify-content: center;
+        -webkit-justify-content: center;
+        /** 流行版的垂直居中 */
+        align-items: center;
+        -webkit-align-items: center;
+    }
+    
+    .maps4 div {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+    }
 </style>
 
 <script type="text/javascript">
-
-
-
 </script>
+
 </html>

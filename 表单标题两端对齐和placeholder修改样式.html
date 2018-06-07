@@ -20,7 +20,6 @@
 <style>
     .test1 {
         text-align: justify;
-        text-justify: distribute-all-lines;
         /*ie6-8*/
         text-align-last: justify;
         /* ie9*/
@@ -32,6 +31,9 @@
     
     @media screen and (-webkit-min-device-pixel-ratio:0) {
         /* chrome*/
+        .test1 {
+            width: 300px;
+        }
         .test1:after {
             content: ".";
             display: inline-block;

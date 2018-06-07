@@ -20,39 +20,45 @@
 </style>
 <script>
     //jq
-    $(function() {
-            $('#ul').on('click', 'li', function(e) {
-                $(this).css('background', '#D4DFE6');
-                $(e.delegateTarget).css('border', '2px solid #f00');
-            });
-        })
-        //原生js
-        // window.onload = function() {
-        //     var oUl = document.getElementById('ul');
-        //     var oBtn = document.getElementById("btn");
-        //     var aLi = document.getElementsByTagName('li');
-        //     var iNow = 11;
-        //     oUl.onmousemove = function(e) {
-        //         var e = e || window.e;
-        //         var target = e.target || e.srcElement;
-        //         if (target.nodeName.toLowerCase() == 'li') {
-        //             target.style.background = "red";
-        //         }
-        //     }
-        //     oUl.onmouseout = function(e) {
-        //         var e = e || window.e;
-        //         var target = e.target || e.srcElement;
-        //         if (target.nodeName.toLowerCase() == "li") {
-        //             target.style.background = "";
-        //         }
-        //     }
-        //     oBtn.onclick = function() {
-        //         iNow++;
-        //         var oLi = document.createElement("li");
-        //         oLi.innerHTML = 1111 * iNow;
-        //         oUl.appendChild(oLi);
-        //     }
-        // }
+    // $(function() {
+    //     $('#ul').on('click', 'li', function(e) {
+    //         $(this).css('background', '#D4DFE6');
+    //         $(e.delegateTarget).css('border', '2px solid #f60');
+    //     });
+    // });
+
+
+
+    //原生js
+    window.onload = function() {
+        var oUl = document.getElementById('ul');
+        var oBtn = document.getElementById("btn");
+        var aLi = document.getElementsByTagName('li');
+        var iNow = 11;
+        oUl.onmousemove = function(e) {
+
+            var e = e || window.e;
+
+            var target = e.target || e.srcElement;
+            console.log(target)
+            if (target.nodeName.toLowerCase() == 'li') {
+                target.style.background = "red";
+            }
+        }
+        oUl.onmouseout = function(e) {
+            var e = e || window.e;
+            var target = e.target || e.srcElement;
+            if (target.nodeName.toLowerCase() == "li") {
+                target.style.background = "";
+            }
+        }
+        oBtn.onclick = function() {
+            iNow++;
+            var oLi = document.createElement("li");
+            oLi.innerHTML = 1111 * iNow;
+            oUl.appendChild(oLi);
+        }
+    }
 </script>
 
 </html>

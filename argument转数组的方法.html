@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head></head>
+
+<body>
+
+</body>
+
+<script type="text/javascript">
+    //1.
+    function transformsArrs() {
+        var arr = [];
+        for (var i = 0; i < arguments.length; i++) {
+            arr.push(arguments[i]);
+        }
+        return arr;
+    }
+    //2.
+    function transformsArrs() {
+        console.log(arguments instanceof Array); // false 
+        var argsArray = Array.prototype.slice.call(arguments);
+        console.log(argsArray instanceof Array); // true 
+    }
+    //3.
+    function transformsArrs() {
+        console.log(arguments instanceof Array); // false 
+        var argsArray = [].slice.call(arguments);
+        console.log(argsArray instanceof Array); // true 
+    }
+    //4.
+    function transformsArrs() {
+        console.log(arguments instanceof Array); // false 
+        var argsArray = Array.from(arguments);
+        console.log(argsArray instanceof Array); // true 
+    }
+    //5.
+    function transformsArrs() {
+        console.log(arguments instanceof Array); // false 
+        var argsArray = [...arguments];
+        console.log(argsArray instanceof Array); // true 
+    }
+</script>
+
+</html>

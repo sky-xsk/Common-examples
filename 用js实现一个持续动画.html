@@ -35,8 +35,17 @@
 
     function render() {
         left == 0 ? flag = true : left == 100 ? flag = false : '';
-        flag ? e.style.left = ` ${left++}px` :
-            e.style.left = ` ${left--}px`;
+
+        // if (left == 0) {
+        //     flag = true
+        // } else {
+        //     left == 100
+        //     if (left == 100) {
+        //         flag = false
+        //     }
+        // }
+
+        flag ? e.style.left = ` ${left++}px` : e.style.left = ` ${left--}px`;
     }
 
     (function animloop() {
@@ -45,10 +54,12 @@
     })();
 
 
+
     //封装一个函数，参数是定时器的时间，.then执行回调函数。
     function sleep(time) {
         return new Promise((resolve) => setTimeout(resolve, time));
     }
+
 
 
 
